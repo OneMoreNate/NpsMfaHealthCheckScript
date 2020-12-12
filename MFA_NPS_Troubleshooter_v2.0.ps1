@@ -26,6 +26,8 @@ Write-Host " (3) Specific User not able to use MFA NPS Extension (Test MFA for s
 Write-Host
 Write-Host " (4) Collect Logs to contact MS support (Enable Logging/Restart NPS/Gather Logs)... " -ForegroundColor Green
 Write-Host
+Write-Host " (E) EXIT SCRIPT " -ForegroundColor Red
+Write-Host
 $Timestamp = "$((Get-Date).ToString("yyyyMMdd_HHmmss"))"
 $Choice_Number =''
 $Choice_Number = Read-Host -Prompt "Based on which test you need to run, please type 1, 2, 3, 4 or E to exit the test, then click enter " 
