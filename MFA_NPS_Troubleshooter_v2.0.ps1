@@ -6,7 +6,7 @@ Write-Host "**** This Tool will help you to troubleshoot MFA NPS Extension Knows
 
 Write-Host "**** Tool Version is 1.0, Make Sure to Visit MS site to get the latest version ****" -ForegroundColor Green
 
-Write-Host "**** Thank you for Using MS Products, Microsoft @2019 ****" -ForegroundColor Green
+Write-Host "**** Thank you for Using MS Products, Microsoft @2021 ****" -ForegroundColor Green
 
 Write-Host "*******************************************************************************"
 
@@ -43,7 +43,7 @@ $Choice_Number = Read-Host -Prompt "Invalid Option, Based on which test you need
 
 
 ##### This Function will be run against against MFA NPS Server ######
-##### Microsoft 2018 @Ahmad Yasin ##########
+##### Microsoft 2021 @Ahmad Yasin, Nate Harris (nathar), Will Aftring (wiaftin) ##########
 
 Function Check_Nps_Server_Module {
 $IWRADNotificationScriptBlock = {
@@ -1073,6 +1073,7 @@ wevtutil epl AuthNOptCh C:\NPS\%computername%_AuthNOptCh.evtx /ow:True
 wevtutil epl AuthZOptCh C:\NPS\%computername%_AuthZOptCh.evtx
 wevtutil epl AuthZAdminCh C:\NPS\%computername%_AuthZAdminCh.evtx
 wevtutil qe Security "/q:*[System [(EventID=6272) or (EventID=6273) or (EventID=6274)]]" /f:text |out-file c:\nps\NPS_EventLog.log
+wevtutil epl Security C:\NPS\%computername%_NPS_Events.evtx "/q:*[System [(EventID=6272) or (EventID=6273) or (EventID=4625) or (EventID=6274)]]" 
 
 $Compress =@{
 Path = "c:\nps\*.txt", "c:\nps\*.evtx", "c:\nps\*.etl","c:\nps\*.log", "c:\nps\*.cab"
